@@ -1,0 +1,5 @@
+url = "https://vra8-fielddemo.cmbu.local/iaas/api/login"
+project_name = "Field Demo"
+blueprint_id = "98c448a2-041b-4b40-9b47-da0d1162142e"
+blueprint_version = "1"
+deployment_name = "sb-oc-tf"
