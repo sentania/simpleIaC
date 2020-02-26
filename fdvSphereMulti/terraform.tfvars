@@ -1,5 +1,0 @@
-url = "https://vra8-fielddemo.cmbu.local/iaas/api/login"
-project_name = "Field Demo"
-blueprint_id = "dad0b0a4-41a2-4bf1-9645-284d9d2c7a0e"
-blueprint_version = "1"
-deployment_name = "sb-vsphere-tf-3"
