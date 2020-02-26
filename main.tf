@@ -22,4 +22,19 @@ resource "vra_deployment" "this" {
     create = "60m"
     delete = "2h"
   }
+
+resource "vra_deployment" "this" {
+  name        = "We need another CentOS"
+  description = "terraform test deployment"
+
+  blueprint_id      = var.blueprint_id
+  blueprint_version = var.blueprint_version
+  project_id        = data.vra_project.this.id
+
+  expand_resources    = true
+  expand_last_request = true
+  timeouts {
+    create = "60m"
+    delete = "2h"
+  }
 }
