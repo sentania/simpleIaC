@@ -22,6 +22,7 @@ $resp = Invoke-RestMethod -Method POST -ContentType "application/json" -URI $log
 $ENV:VRA_URL="https://$vRAServer"
 $ENV:VRA_REFRESH_TOKEN=$resp.refresh_token
 $refresh_token = $resp.refresh_token
-
-& C:\utils\terraform.exe apply -var refresh_token="$refresh_token"
+& C:\utils\terraform.exe init
+& C:\utils\terraform.exe plan -var refresh_token="$refresh_token" -out myplan 
+& C:\utils\terraform.exe apply -input=false myplan
 

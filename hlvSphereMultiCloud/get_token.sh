@@ -84,4 +84,6 @@ echo "----------------------------"
 echo $VRA_REFRESH_TOKEN
 echo "----------------------------"
 
-terraform apply -var refresh_token="$VRA_REFRESH_TOKEN"
+terraform init
+terraform plan -var refresh_token="$VRA_REFRESH_TOKEN" -out myplan
+terraform apply -input=false myplan
