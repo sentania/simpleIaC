@@ -7,22 +7,19 @@
 # TF provider more securely than leaving the token in cleartext. 
 #
 #
-username=sentania
-password=p0w3R2win!
-domain=
-host=vra8.lab.sentania.net
+
 #use different json bodies with curl depending on whether or not a domain 
 # was specified
 echo -e "\nGetting Token"
 if [[ $domain == "" ]]
 then
 	export VRA_REFRESH_TOKEN=`curl -k -X POST \
-  		"$VRA_URL/csp/gateway/am/api/login?access_token" \
+  		"$vra8.lab.sentania.net/csp/gateway/am/api/login?access_token" \
   		-H 'Content-Type: application/json' \
   		-s \
   		-d '{
-  		"username": "'"$username"'",
-  		"password": "'"$password"'"
+  		"username": "'"sentania"'",
+  		"password": "'"p0w3R2win!"'"
 		}' | /usr/local/bin/jq -r .refresh_token`
 
 else
