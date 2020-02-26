@@ -1,9 +1,9 @@
 #Script to generate an API refresh token for accessing vRA8/CAS. This is needed for
 # the terraform provider to connect successfully
-$vRAUser="configuser"
-$vRApassword="VMware1!"
+$vRAUser="sentania"
+$vRApassword="***REMOVED***"
 $vRAdomain=""
-$vRAServer="vra8-fielddemo.cmbu.local"
+$vRAServer="vra8.lab.sentania.net"
 
 
 $loginurl="https://$vraserver/csp/gateway/am/api/login?access_token"
