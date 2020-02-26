@@ -1,4 +1,4 @@
-url = "https://vra8.lab.sentania.net//iaas/api/login"
+url = "https://vra8.lab.sentania.net/"
 project_name = "LabSandbox"
 blueprint_id = "45d8a124-ecd0-426d-aa3d-fe67f6c808b9"
 blueprint_version = "1.5"
