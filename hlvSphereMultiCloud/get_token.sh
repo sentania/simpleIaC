@@ -7,7 +7,7 @@
 # TF provider more securely than leaving the token in cleartext. 
 #
 #
-if  ! [ -x "$(command -v jq)" ]
+if  ! [ -x which jq ]
 then
 	echo -e "\n\nthe jq utility is missing. See https://stedolan.github.io/jq/ for instructions to get it\n\n"
 	return 1
@@ -84,6 +84,6 @@ echo "----------------------------"
 echo $VRA_REFRESH_TOKEN
 echo "----------------------------"
 
-terraform init
-terraform plan -var refresh_token="$VRA_REFRESH_TOKEN" -out myplan
-terraform apply -input=false myplan
+/usr/local/bin/terraform init
+/usr/local/bin/terraform plan -var refresh_token="$VRA_REFRESH_TOKEN" -out myplan
+/usr/local/bin/terraform apply -input=false myplan
