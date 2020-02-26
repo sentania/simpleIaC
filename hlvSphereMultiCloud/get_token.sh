@@ -7,6 +7,47 @@
 # TF provider more securely than leaving the token in cleartext. 
 #
 #
+if  ! [ -x which jq ]
+then
+	echo -e "\n\nthe jq utility is missing. See https://stedolan.github.io/jq/ for instructions to get it\n\n"
+	return 1
+fi
+
+#Check for an already existing username value
+if [[ -v username ]] 
+then
+	echo -e "\nusername variable found: $username\n"
+else 
+	echo -e "\n\nPlease enter username to connect to vra with"
+	read username
+fi
+
+#Check for an already existing password value
+if [[ -v password ]]
+then
+    echo -e "\npassword variable found\n"
+else
+    echo -e "\n\nPlease enter password to connect to vra with\n"
+    read password
+fi
+
+#Check for an already existing LDAP/AD domain value
+if [[ -v domain ]]
+then
+    echo -e "\nExisting domain variable found: $domain\n"
+else
+	echo -e "\n\nPlease enter domain to connect to vra with (for AD/LDAP users) or press Enter"
+	read domain
+fi
+
+if [[ -v VRA_URL || -v host ]]
+then 
+	echo -e "\nfound a value for the vra/cas server\n"
+else
+ 	echo -e "\n\nPlease enter the hostname/fqdn of the VRA8 server/ or cloud identity server"
+	read host
+	export VRA_URL="https://$host"
+fi
 
 #use different json bodies with curl depending on whether or not a domain 
 # was specified
@@ -14,13 +55,13 @@ echo -e "\nGetting Token"
 if [[ $domain == "" ]]
 then
 	export VRA_REFRESH_TOKEN=`curl -k -X POST \
-  		"$vra8.lab.sentania.net/csp/gateway/am/api/login?access_token" \
+  		"$VRA_URL/csp/gateway/am/api/login?access_token" \
   		-H 'Content-Type: application/json' \
   		-s \
   		-d '{
-  		"username": "'"sentania"'",
-  		"password": "'"***REMOVED***"'"
-		}' | /usr/local/bin/jq -r .refresh_token`
+  		"username": "'"$username"'",
+  		"password": "'"$password"'"
+		}' | jq -r .refresh_token`
 
 else
 	export VRA_REFRESH_TOKEN=`curl -k -X POST \
@@ -31,7 +72,7 @@ else
   		"username": "'"$username"'",
   		"password": "'"$password"'",
   		"domain": "'"$domain"'"
-		}' | /usr/local/bin/jq -r .refresh_token`
+		}' | jq -r .refresh_token`
 fi
 
 
