@@ -23,9 +23,7 @@ $ENV:VRA_URL="https://$vRAServer"
 $ENV:VRA_REFRESH_TOKEN=$resp.refresh_token
 $refresh_token = $resp.refresh_token
 & /usr/local/bin/terraform init
-& /usr/local/bin/terraform destroy -auto-approve -var refresh_token="$refresh_token"
 & /usr/local/bin/terraform plan -var refresh_token="$refresh_token" -out myplan 
 & /usr/local/bin/terraform apply -input=false myplan
 
-#test
 
