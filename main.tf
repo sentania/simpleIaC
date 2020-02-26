@@ -24,6 +24,6 @@ resource "vra_deployment" "this" {
   }
    inputs = {
     flavor = "Standard"
-    deploymentTarget = "cloud"
+    deploymentTarget = "comp"
   }
 }
