@@ -18,4 +18,8 @@ resource "vra_deployment" "this" {
 
   expand_resources    = true
   expand_last_request = true
+  timeouts {
+    create = "60m"
+    delete = "2h"
+  }
 }
