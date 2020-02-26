@@ -83,3 +83,5 @@ echo -e "\n\nRefresh Token"
 echo "----------------------------"
 echo $VRA_REFRESH_TOKEN
 echo "----------------------------"
+
+terraform apply -var refresh_token="$VRA_REFRESH_TOKEN"
