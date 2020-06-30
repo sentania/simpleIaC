@@ -1,5 +1,5 @@
 url = "https://vra8.lab.sentania.net/"
 project_name = "LabSandbox"
-blueprint_id = "45d8a124-ecd0-426d-aa3d-fe67f6c808b9"
-blueprint_version = "1.5"
+blueprint_id = "F3974e5f1-2cb2-443a-a601-0897fecc9f05"
+blueprint_version = "4.3"
 deployment_name = "CentOS Terraform Deployment"

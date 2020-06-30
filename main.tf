@@ -22,8 +22,5 @@ resource "vra_deployment" "this" {
     create = "60m"
     delete = "2h"
   }
-   inputs = {
-    flavor = "Standard"
-    deploymentTarget = "comp"
-  }
+   
 }
