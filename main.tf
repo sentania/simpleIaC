@@ -10,7 +10,7 @@ data "vra_project" "this" {
 
 resource "vra_deployment" "this" {
   name        = var.deployment_name
-  description = "terraform test deployment"
+  description = "Simple IaC Demo"
 
   blueprint_id      = var.blueprint_id
   blueprint_version = var.blueprint_version
