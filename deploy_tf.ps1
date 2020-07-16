@@ -28,7 +28,7 @@ param (
 
 )
 
-
+$vradomain = "int.sentania.net"
 $loginurl="https://$vraserver/csp/gateway/am/api/login?access_token"
 if ($vradomain.length -gt 1) {
     $body = "{ ""username"":""$vRAUser"",""password"":""$vRAPassword"",""domain"":""$vRADomain""}"    
