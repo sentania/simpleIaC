@@ -22,5 +22,8 @@ resource "vra_deployment" "this" {
     create = "60m"
     delete = "2h"
   }
-   
+  inputs = {
+  flavor = var.vm_size
+}
+
 }
