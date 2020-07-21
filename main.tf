@@ -24,6 +24,7 @@ resource "vra_deployment" "this" {
   }
   inputs = {
   serverSize = var.vm_size
+  serviceLevel = "production"
 }
 
 }
