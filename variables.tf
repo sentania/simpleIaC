@@ -15,3 +15,5 @@ variable "blueprint_version" {
 
 variable "deployment_name" {
 }
+variable "vm_size" {    
+}
