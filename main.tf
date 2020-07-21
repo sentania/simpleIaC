@@ -23,7 +23,7 @@ resource "vra_deployment" "this" {
     delete = "2h"
   }
   inputs = {
-  flavor = var.vm_size
+  serverSize = var.vm_size
 }
 
 }
