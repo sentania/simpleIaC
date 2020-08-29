@@ -1,6 +1,6 @@
 url = "https://vra8.lab.sentania.net/"
 project_name = "LabSandbox"
-blueprint_id = "F6ffb9557-44b1-4486-aeb1-972e92b0c7fd"
+blueprint_id = "6ffb9557-44b1-4486-aeb1-972e92b0c7fd"
 blueprint_version = "4"
 deployment_name = "Simple IaC Deployment Demo (1)"
 storagetier = "ssd"
