@@ -23,7 +23,7 @@ variable "serviceLevel" {
 }
 variable "serverSize" {
 }
-variable "count" {
+variable "vm_count" {
 }
 variable "OS" {
 }
