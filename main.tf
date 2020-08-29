@@ -23,8 +23,11 @@ resource "vra_deployment" "this" {
     delete = "2h"
   }
   inputs = {
-  serverSize = var.vm_size
-  serviceLevel = "production"
-}
+  serverSize = var.serverSize
+  serviceLevel = var.serviceLevel
+  count = var.count
+  OS = var.OS
+  storagetier = var.storagetier
+  }
 
 }

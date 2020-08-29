@@ -17,3 +17,13 @@ variable "deployment_name" {
 }
 variable "vm_size" {    
 }
+variable "storagetier" {
+}
+variable "serviceLevel" {
+}
+variable "serverSize" {
+}
+variable "count" {
+}
+variable "OS" {
+}
