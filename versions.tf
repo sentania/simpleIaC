@@ -2,7 +2,7 @@
 terraform {
   required_version = ">= 0.12"
   required_providers {
-    vra = {
+    provider.vra = {
       version = ">= 0.3"
     }
   }
