@@ -5,4 +5,5 @@ terraform {
     vra = {
       version = ">= 0.3"
     }
+  }
 }
