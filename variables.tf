@@ -15,8 +15,6 @@ variable "blueprint_version" {
 
 variable "deployment_name" {
 }
-variable "vm_size" {    
-}
 variable "storagetier" {
 }
 variable "serviceLevel" {
