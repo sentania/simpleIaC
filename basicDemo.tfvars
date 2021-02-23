@@ -1,7 +1,7 @@
 url = "https://vra8.lab.sentania.net/"
 project_name = "LabSandbox"
 blueprint_id = "6ffb9557-44b1-4486-aeb1-972e92b0c7fd"
-blueprint_version = "Demo"
+blueprint_version = "updatedversion"
 deployment_name = "SimpleIAC"
 serviceLevel = "sandbox"
 serverSize = "Standard"
