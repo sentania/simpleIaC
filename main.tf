@@ -27,7 +27,6 @@ resource "vra_deployment" "this" {
   serviceLevel = var.serviceLevel
   count = var.vm_count
   OS = var.OS
-  storagetier = var.storagetier
   }
 
 }
