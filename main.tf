@@ -25,7 +25,7 @@ resource "vra_deployment" "this" {
   inputs = {
   serverSize = var.serverSize
   serviceLevel = var.serviceLevel
-  count = var.vm_count
+  serverCount = var.vm_count
   OS = var.OS
   }
 
