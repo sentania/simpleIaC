@@ -66,17 +66,14 @@ if ( [environment]::OSVersion.Platform -eq 'Unix')
         break;
     }
 
-foreach ($varfile in $varfiles)
-{       
-        
+   
         Write-host "Applying terraform configuration"
         $basename = $varfile.BaseName
         $stateFilePath = "$statePath/simpleIAC.tfstate"
         & $path --version
         & $path init
         & $path providers
-        & $path plan -var-file="$varfile" -state="$stateFilePath" -url "https://vra8.lab.sentania.net/" -var refresh_token="$refresh_token" -out "$statepath/$basename-maintain-plan"
+        & $path plan -state="$stateFilePath" -url "https://vra8.lab.sentania.net/" -var refresh_token="$refresh_token" -out "$statepath/$basename-maintain-plan"
         & $path apply -state="$stateFilePath" -input=false $statepath/$basename-maintain-plan
         #to ensure we can cleanly destory things in the future
-        & $path plan -state="$stateFilePath" -destroy -var-file="$varfile" -url "https://vra8.lab.sentania.net/" -var refresh_token="$refresh_token" -out $statepath/$basename-destroy-plan
-}
+        & $path plan -state="$stateFilePath" -destroy  -url "https://vra8.lab.sentania.net/" -var refresh_token="$refresh_token" -out $statepath/$basename-destroy-plan
