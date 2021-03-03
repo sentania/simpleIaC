@@ -46,8 +46,7 @@ $ENV:VRA_URL="https://$vRAServer"
 $ENV:VRA_REFRESH_TOKEN=$resp.refresh_token
 $refresh_token = $resp.refresh_token
 
-$varfiles = Get-ChildItem -Path . -Filter *.tfvars
-$tfstateFiles = get-childitem -path $statePath -Filter *.tfstate
+
 if ( [environment]::OSVersion.Platform -eq 'Unix')
     {
         $path = '/usr/local/bin/terraform.14.7'
@@ -66,18 +65,13 @@ if ( [environment]::OSVersion.Platform -eq 'Unix')
         Write-host "Unable to determine operating system"
         break;
     }
-$varfilesCount = $varfiles.count
-Write-host "$varfilesCount var files found:"
-foreach ($varfile in $varfiles)
-{
-    Write-host "$varfile.basename"
-}    
+
 foreach ($varfile in $varfiles)
 {       
         
         Write-host "Applying terraform configuration"
         $basename = $varfile.BaseName
-        $stateFilePath = "$statePath/$basename.tfstate"
+        $stateFilePath = "$statePath/simpleIAC.tfstate"
         & $path --version
         & $path init
         & $path providers
