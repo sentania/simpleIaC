@@ -7,4 +7,5 @@ module deployment1 {
     serverSize = "Small"
     vm_count = "2"
     OS = "centOS7"
+    description = "deployment1"
 }
