@@ -16,5 +16,3 @@ variable "vm_count" {
 }
 variable "OS" {
 }
-variable "description" {
-}
