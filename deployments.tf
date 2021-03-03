@@ -9,4 +9,5 @@ module deployment1 {
     OS = "centOS7"
     description = "deployment1"
     refresh_token = var.refresh_token
+    url = var.vra_url
 }

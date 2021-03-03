@@ -18,3 +18,5 @@ variable "OS" {
 }
 variable "refresh_token" {
 }
+variable "url" {
+}
