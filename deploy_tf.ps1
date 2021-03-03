@@ -86,16 +86,3 @@ foreach ($varfile in $varfiles)
         #to ensure we can cleanly destory things in the future
         & $path plan -state="$stateFilePath" -destroy -var-file="$varfile" -url "https://vra8.lab.sentania.net/" -var refresh_token="$refresh_token" -out $statepath/$basename-destroy-plan
 }
-
-foreach ($tfstateFile in $tfstateFiles)
-{
-    if ($tfstatefile | Where-Object {$varfiles.basename -notcontains $_.basename})
-    {
-        Write-host "Detected that clean up is needed $tfstatefile"
-        $basename = $tfstatefile.BaseName
-        & $path --version
-        & $path init
-        & $path providers
-        & $path apply -input=false -auto-approve $statepath/$basename-destroy-plan
-    }
-}
