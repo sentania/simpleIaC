@@ -8,8 +8,6 @@ variable "blueprint_version" {
 }
 variable "deployment_name" {
 }
-variable "storagetier" {
-}
 variable "serviceLevel" {
 }
 variable "serverSize" {
