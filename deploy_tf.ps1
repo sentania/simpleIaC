@@ -46,7 +46,8 @@ $ENV:VRA_URL="https://$vRAServer"
 $ENV:VRA_REFRESH_TOKEN=$resp.refresh_token
 $refresh_token = $resp.refresh_token
 
-
+$varfiles = Get-ChildItem -Path . -Filter *.tfvars
+$tfstateFiles = get-childitem -path $statePath -Filter *.tfstate
 if ( [environment]::OSVersion.Platform -eq 'Unix')
     {
         $path = '/usr/local/bin/terraform.14.7'
@@ -65,15 +66,36 @@ if ( [environment]::OSVersion.Platform -eq 'Unix')
         Write-host "Unable to determine operating system"
         break;
     }
-
-   
+$varfilesCount = $varfiles.count
+Write-host "$varfilesCount var files found:"
+foreach ($varfile in $varfiles)
+{
+    Write-host "$varfile.basename"
+}    
+foreach ($varfile in $varfiles)
+{       
+        
         Write-host "Applying terraform configuration"
         $basename = $varfile.BaseName
-        $stateFilePath = "$statePath/simpleIAC.tfstate"
+        $stateFilePath = "$statePath/$basename.tfstate"
         & $path --version
         & $path init
         & $path providers
-        & $path plan -state="$stateFilePath" -var vra_url="https://vra8.lab.sentania.net/" -var refresh_token="$refresh_token" -out "$statepath/$basename-maintain-plan"
+        & $path plan -var-file="$varfile" -state="$stateFilePath" -var refresh_token="$refresh_token" -out "$statepath/$basename-maintain-plan"
         & $path apply -state="$stateFilePath" -input=false $statepath/$basename-maintain-plan
         #to ensure we can cleanly destory things in the future
-        & $path plan -state="$stateFilePath" -destroy  -var vra_url="https://vra8.lab.sentania.net/" -var refresh_token="$refresh_token" -out $statepath/$basename-destroy-plan
+        & $path plan -state="$stateFilePath" -destroy -var-file="$varfile" -var refresh_token="$refresh_token" -out $statepath/$basename-destroy-plan
+}
+
+foreach ($tfstateFile in $tfstateFiles)
+{
+    if ($tfstatefile | Where-Object {$varfiles.basename -notcontains $_.basename})
+    {
+        Write-host "Detected that clean up is needed $tfstatefile"
+        $basename = $tfstatefile.BaseName
+        & $path --version
+        & $path init
+        & $path providers
+        & $path apply -input=false -auto-approve $statepath/$basename-destroy-plan
+    }
+}
