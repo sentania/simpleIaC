@@ -61,7 +61,6 @@ fi
 
 #use different json bodies with curl depending on whether or not a domain
 # was specified
-echo -e "\nGetting Token"
 if [[ $domain == "" ]]
 then
         export VRA_REFRESH_TOKEN=`curl -vvvk -X POST \
