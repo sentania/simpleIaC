@@ -19,8 +19,7 @@ deleteDir()
           }
         }
         stage("test if param was saved") {
-            steps {
               echo "${env.refresh_token}"   
             }
-        }
+
 }
