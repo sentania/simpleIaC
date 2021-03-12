@@ -32,40 +32,29 @@ then
 fi
 
 #Check for an already existing username value
-if [[ $username != "empty" ]]
-then
-        echo -e "\nusername variable found: $username\n"
-else
+if [[ $username == "empty" ]]
+
         echo -e "\nPlease enter username to connect to vra with"
-        read username
+        exit 1
 fi
 
 #Check for an already existing password value
-if [[ $password != "empty" ]]
-then
-    echo -e "\npassword variable found\n"
-else
+if [[ $password == "empty" ]]
+
     echo -e "\nPlease enter password to connect to vra with\n"
-    read -s password
+    exit 1
 fi
 
 #Check for an already existing LDAP/AD domain value
 if [[ $domain != "empty" ]]
-then
-    echo -e "\nExisting domain variable found: $domain\n"
-else
+
         echo -e "\nPlease enter domain to connect to vra with (for AD/LDAP users) or press Enter if you not want to use domain"
-        read domain
+        exit 1
 fi
 
 if [[ $host != "empty" ]]
-then
-        echo -e "\nfound a value for the vra/cas server\n"
-        export VRA_URL="https://$host"
-else
         echo -e "\nPlease enter the hostname/fqdn of the VRA8 server/ or cloud identity server"
-        read host
-        export VRA_URL="https://$host"
+        exit 1
 fi
 
 #use different json bodies with curl depending on whether or not a domain
