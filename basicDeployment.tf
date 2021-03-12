@@ -3,6 +3,7 @@ module deployment1 {
     project_name = "LabSandbox"
     blueprint_version = "demo1"
     deployment_name = "deployment1"
+    description = "TF Deployment"
     serviceLevel = "sandbox"
     serverSize = "Small"
     vm_count = "2"
