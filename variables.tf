@@ -1,25 +1,13 @@
-variable "url" {
+variable vra_url {
+  type = string
+  default = "https://api.mgmt.cloud.vmware.com"
 }
 
-variable "refresh_token" {
+variable refresh_token {
+  type = string
 }
 
-variable "project_name" {
-}
-
-variable "blueprint_id" {
-}
-
-variable "blueprint_version" {
-}
-
-variable "deployment_name" {
-}
-variable "serviceLevel" {
-}
-variable "serverSize" {
-}
-variable "vm_count" {
-}
-variable "OS" {
+variable insecure {
+  type = bool
+  default = true
 }

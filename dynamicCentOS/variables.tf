@@ -16,7 +16,3 @@ variable "vm_count" {
 }
 variable "OS" {
 }
-variable "refresh_token" {
-}
-variable "url" {
-}
