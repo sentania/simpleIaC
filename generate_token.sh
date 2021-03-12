@@ -24,6 +24,17 @@ while [ $# -gt 0 ]; do
   shift
 done
 
+while [ $# -gt 0 ]; do
+
+   if [[ $1 == *"--"* ]]; then
+        param="${1/--/}"
+        declare $param="$2"
+        # echo $1 $2 // Optional to see the parameter:value result
+   fi
+
+  shift
+done
+
 
 if  ! [ -x "$(command -v jq)" ]
 then
@@ -34,9 +45,8 @@ fi
 #Check for an already existing username value
 if [[ $username == "empty" ]]
 then
-
         echo -e "\nPlease enter username to connect to vra with"
-        exit 1
+         exit 1
 fi
 
 #Check for an already existing password value
@@ -53,8 +63,10 @@ then
         exit 1
 fi
 
-if [[ $host == "empty" ]]
+if [[ $host != "empty" ]]
 then
+        export VRA_URL="https://$host"
+else
         echo -e "\nPlease enter the hostname/fqdn of the VRA8 server/ or cloud identity server"
         exit 1
 fi
@@ -86,6 +98,5 @@ fi
 
 #clean up password
 unset password
-
 
 echo $VRA_REFRESH_TOKEN
