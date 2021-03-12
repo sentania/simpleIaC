@@ -20,9 +20,6 @@ deleteDir()
         }
         stage("test if param was saved") {
             steps {
-              echo "${env.custom_var}"
-            }
-
-       
+              echo "${env.custom_var}"   
     }
 }
