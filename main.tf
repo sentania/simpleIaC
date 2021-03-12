@@ -1,5 +1,5 @@
 provider "vra" {
-  url           = var.vra_url
+  url           = var.url
   refresh_token = var.refresh_token
-  insecure      = var.insecure
+  insecure= var.insecure
 }

@@ -1,9 +1,3 @@
-provider "vra" {
-  url           = var.url
-  refresh_token = var.refresh_token
-  insecure= "true"
-}
-
 data "vra_project" "this" {
   name = var.project_name
 }
