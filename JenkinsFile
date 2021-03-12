@@ -19,6 +19,7 @@ deleteDir()
           }
         }
         stage("Execute Terraform Deployment") {
+          echo "${env.refresh_token}"   
           sh './terraform init'
           sh './terraform providers'
           sh './terraform plan -url "https://vra8.lab.sentania.net/" -var refresh_token="$refresh_token" -state="~/terraform/simpleIaC.tfstate" -out="deploymentPlan"'
