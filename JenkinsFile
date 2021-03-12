@@ -5,11 +5,22 @@ deleteDir()
       stage ('Checkout Build Code') {
          checkout scm
        }
+      stage ('Download Terraform') {
+        sh 'wget https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip'
+        sh 'unzip terraform_0.14.7_linux_amd64.zip'
+      }
 
         withCredentials([usernamePassword(credentialsId: 'vRA_System_Admin',
         usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword')]) {
-        stage ('Execute deploy_tf.ps1') {
-        sh '/bin/pwsh deploy_tf.ps1 -vrauser $vRAUserName -vRApassword $vRAPassword -vRAServer vra8.lab.sentania.net -statepath /var/lib/jenkins/terraform/simpleIaC/'
+        stage ('Generate API TOKEN') {
+         tmp_param = sh (script:'/generate_token.sh --username $vRAUserName --password $vRAPassword --domain int.sentania.net --host vra8.lab.sentania.net', returnStdOut: true).trim()
+         env.refresh_token = tmp_param
         }
+        stage("test if param was saved") {
+            steps {
+              echo "${env.custom_var}"
+            }
+
+       
     }
 }
