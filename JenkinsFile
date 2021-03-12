@@ -24,12 +24,4 @@ deleteDir()
           sh './terraform plan -url "https://vra8.lab.sentania.net/" -var refresh_token="${env.refresh_token}" -state="~/terraform/simpleIaC.tfstate" -out="deploymentPlan"'
           sh './terraform apply -state="~/terraform/simpleIaC.tfstate" -input=false deploymentPlan'
         }
-        stage("test if param was saved") {
-              echo "${env.refresh_token}"   
-            }
-
 }
-
-
-
-..\terraform plan -var refresh_token=lXe0FkKUjG0yu6zzKGuP6zlHeAEsHTnt -var nsx_url=lab-mgmt01-nsx01.lab.sentania.net -var vra_url=https://vra8.lab.sentania.net -var serviceAccountUserName=vrealize@int.sentania.net -var serviceAccountPassword=p0w3R2inw!
