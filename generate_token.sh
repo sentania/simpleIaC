@@ -33,6 +33,7 @@ fi
 
 #Check for an already existing username value
 if [[ $username == "empty" ]]
+then
 
         echo -e "\nPlease enter username to connect to vra with"
         exit 1
@@ -40,19 +41,20 @@ fi
 
 #Check for an already existing password value
 if [[ $password == "empty" ]]
-
+then
     echo -e "\nPlease enter password to connect to vra with\n"
     exit 1
 fi
 
 #Check for an already existing LDAP/AD domain value
 if [[ $domain != "empty" ]]
-
+then
         echo -e "\nPlease enter domain to connect to vra with (for AD/LDAP users) or press Enter if you not want to use domain"
         exit 1
 fi
 
 if [[ $host != "empty" ]]
+then
         echo -e "\nPlease enter the hostname/fqdn of the VRA8 server/ or cloud identity server"
         exit 1
 fi
