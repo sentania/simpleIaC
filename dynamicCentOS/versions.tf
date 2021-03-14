@@ -1,10 +1,10 @@
 
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.14"
   required_providers {
     vra = {
       source = "vmware/vra"
-      version = ">= 0.3.3"
+      version = ">= 0.3.4"
     }
   }
 
