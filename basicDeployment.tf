@@ -10,11 +10,11 @@ module deployment3 {
     OS = "centOS7"
 }
 
-module deployment2 {
+module deploymenta {
     source           = "./dynamicCentOS"
     project_name = "LabSandbox"
     blueprint_version = "LogInsight"
-    deployment_name = "deployment2"
+    deployment_name = "deploymenta"
     description = "TF Deployment"
     serviceLevel = "sandbox"
     serverSize = "Small"
