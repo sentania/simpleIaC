@@ -1,7 +1,7 @@
 module deployment1 {
     source           = "./dynamicCentOS"
     project_name = "LabSandbox"
-    blueprint_version = "demo1"
+    blueprint_version = "LogInsight"
     deployment_name = "deployment1"
     description = "TF Deployment"
     serviceLevel = "sandbox"
