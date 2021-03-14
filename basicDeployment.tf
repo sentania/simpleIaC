@@ -1,8 +1,8 @@
-module deployment1 {
+module deployment3 {
     source           = "./dynamicCentOS"
     project_name = "LabSandbox"
     blueprint_version = "LogInsight"
-    deployment_name = "deployment1"
+    deployment_name = "deployment3"
     description = "TF Deployment"
     serviceLevel = "sandbox"
     serverSize = "Small"
@@ -18,6 +18,6 @@ module deployment2 {
     description = "TF Deployment"
     serviceLevel = "sandbox"
     serverSize = "Small"
-    vm_count = "2"
+    vm_count = "3"
     OS = "centOS7"
 }
