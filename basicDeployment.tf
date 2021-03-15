@@ -1,5 +1,5 @@
 module deployment2 {
-    source           = "./dynamicCentOS"
+    source           = "./basicIasVM"
     project_name = "Human Resources"
     catalog_item_version = "InitialRelease"
     deployment_name = "HR 1"
