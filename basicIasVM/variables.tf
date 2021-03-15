@@ -4,7 +4,7 @@ variable "project_name" {
 variable "description" {
 }
 
-variable "blueprint_version" {
+variable "catalog_item_version" {
 }
 variable "deployment_name" {
 }
@@ -14,5 +14,5 @@ variable "serverSize" {
 }
 variable "vm_count" {
 }
-variable "OS" {
+variable "az" {
 }
