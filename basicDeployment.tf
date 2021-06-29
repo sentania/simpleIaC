@@ -1,8 +1,8 @@
   
-#### HR Application
-module HRDeployment1 {
+###My server
+module demo01 {
     source           = "./basicIasVM"
-    project_name = "Human Resources"
+    project_name = "Lab Sandbox"
     catalog_item_version = "InitialRelease"
     deployment_name = "HR Sandbox"
     description = "TF Deployment"
