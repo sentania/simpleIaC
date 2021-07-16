@@ -20,6 +20,7 @@ module sandboxOC {
     description = "oc-sandbox-tf"
     serviceLevel = "sandbox"
     cloudTarget = "vSphere"
+    clusterSize = "small"
     size = "small"
     compliance = "pci"
     username = "demouser"
