@@ -12,7 +12,6 @@ resource "vra_deployment" "this" {
   catalog_item_version  = var.catalog_item_version
   project_id        = data.vra_project.this.id
 
-  expand_resources    = true
   expand_last_request = true
   timeouts {
     create = "60m"

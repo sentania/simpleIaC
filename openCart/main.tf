@@ -13,7 +13,7 @@ resource "vra_deployment" "this" {
   project_id        = data.vra_project.this.id
 
   expand_resources    = true
-  expand_last_request = true
+
   timeouts {
     create = "60m"
     delete = "2h"
