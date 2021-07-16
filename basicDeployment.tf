@@ -15,7 +15,7 @@ module demo01 {
 module sandboxOC {
     source           = "./openCart"
     project_name = "Opencart Application Group"
-    catalog_item_version = "InitialRelease"
+    catalog_item_version = "Release.1"
     deployment_name = "oc-sandbox-tf"
     description = "oc-sandbox-tf"
     serviceLevel = "sandbox"
