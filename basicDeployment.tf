@@ -11,18 +11,3 @@ module demo01 {
     vm_count = "2"
     az = "az1"
 }
-###My server
-module sandboxOC {
-    source           = "./openCart"
-    project_name = "Opencart Application Group"
-    catalog_item_version = "Release.1"
-    deployment_name = "oc-sandbox-tf"
-    description = "oc-sandbox-tf"
-    serviceLevel = "Sandbox"
-    cloudTarget = "vSphere"
-    clusterSize = "small"
-    size = "Small"
-    compliance = "pci"
-    username = "demouser"
-    password ="VMware1!"
-}
