@@ -28,7 +28,7 @@ module sandboxOC {
 }
 
 ###Opencart Test PCI
-module sandboxOC {
+module testOpencart {
     source           = "./openCart"
     project_name = "Opencart Application Group"
     catalog_item_version = "Release.1"
