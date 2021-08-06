@@ -23,7 +23,7 @@ module testOpencart {
     description = "oc-test-pci-tf"
     serviceLevel = "Test"
     cloudTarget = "vSphere"
-    clusterSize = "small"
+    clusterSize = "medium"
     size = "Small"
     compliance = "pci"
     username = "demouser"
