@@ -29,19 +29,3 @@ module testOpencart {
     username = "demouser"
     password ="VMware1!"
 }
-
-###Opencart Test PCI
-module testOpencart2 {
-    source           = "./openCart"
-    project_name = "Opencart Application Group"
-    catalog_item_version = "Release.1"
-    deployment_name = "oc-test-pci-tf-2"
-    description = "oc-test-pci-tf"
-    serviceLevel = "Test"
-    cloudTarget = "vSphere"
-    clusterSize = "medium"
-    size = "Small"
-    compliance = "pci"
-    username = "demouser"
-    password ="VMware1!"
-}
