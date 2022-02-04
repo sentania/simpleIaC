@@ -23,7 +23,7 @@ deleteDir()
           echo "export TF_VAR_refresh_token=$refresh_token"   
           sh './terraform init'
           sh './terraform providers'
-          sh './terraform plan -var vra_url="https://vra8.lab.sentania.net/" -var refresh_token=${refresh_token} -state="/var/lib/jenkins/terraform/simpleIaC.tfstate" -out="deploymentPlan"'
+          sh './terraform plan -var vra_url="https://vra8.lab.sentania.net/" -var refresh_token=pfGlnw9HJbXMRZp9sittuEeHPCv7S0AT -state="/var/lib/jenkins/terraform/simpleIaC.tfstate" -out="deploymentPlan"'
           sh './terraform apply -state="/var/lib/jenkins/terraform/simpleIaC.tfstate" -input=false deploymentPlan'
         }
 }
