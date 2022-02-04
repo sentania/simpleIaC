@@ -2,7 +2,7 @@
 module sandboxOC {
     source           = "./openCart"
     project_name = "Opencart Application Group"
-    catalog_item_version = "Release.1"
+    catalog_item_version = "Release.3"
     deployment_name = "oc-sandbox-tf"
     description = "oc-sandbox-tf"
     serviceLevel = "Sandbox"
@@ -18,7 +18,7 @@ module sandboxOC {
 module testOpencart {
     source           = "./openCart"
     project_name = "Opencart Application Group"
-    catalog_item_version = "Release.1"
+    catalog_item_version = "Release.3"
     deployment_name = "oc-test-pci-tf"
     description = "oc-test-pci-tf"
     serviceLevel = "Test"

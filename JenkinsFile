@@ -6,8 +6,8 @@ deleteDir()
          checkout scm
        }
       stage ('Download Terraform') {
-        sh 'wget https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip'
-        sh 'unzip terraform_0.14.7_linux_amd64.zip'
+        sh 'wget https://releases.hashicorp.com/terraform/1.1.5/terraform_1.1.5_linux_amd64.zip'
+        sh 'unzip terraform_1.1.5_linux_amd64.zip'
       }
 
         withCredentials([usernamePassword(credentialsId: 'vRA_System_Admin',
@@ -23,7 +23,7 @@ deleteDir()
           echo "export TF_VAR_refresh_token=$refresh_token"   
           sh './terraform init'
           sh './terraform providers'
-          sh './terraform plan -var vra_url="https://vra8.lab.sentania.net/" -var refresh_token=HpwzpB5qBSHHMikZCFmloYys1tniZ7aQ -state="/var/lib/jenkins/terraform/simpleIaC.tfstate" -out="deploymentPlan"'
+          sh './terraform plan -var vra_url="https://vra8.lab.sentania.net/" -var refresh_token=${refresh_token} -state="/var/lib/jenkins/terraform/simpleIaC.tfstate" -out="deploymentPlan"'
           sh './terraform apply -state="/var/lib/jenkins/terraform/simpleIaC.tfstate" -input=false deploymentPlan'
         }
 }
