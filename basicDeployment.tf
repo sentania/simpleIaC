@@ -19,7 +19,7 @@ module sandboxOC {
     source           = "./openCart"
     project_name = "Opencart Application Group"
     catalog_item_version = "Release.3"
-    deployment_name = "oc-sandbox-t1f"
+    deployment_name = "oc-sandbox-tf1"
     description = "oc-sandbox-tf"
     serviceLevel = "Sandbox"
     cloudTarget = "vSphere"
@@ -28,4 +28,17 @@ module sandboxOC {
     compliance = "pci"
     username = "demouser"
     password ="VMware1!"
+}
+
+###Opencart Sandbox
+module simpleIACSandbox {
+    source           = "./simpleIaa"
+    project_name = "Lab Sandbox"
+    catalog_item_version = "InitialRelease"
+    deployment_name = "simpleIaaS"
+    description = "simple iaas"
+    serviceLevel = "Sandbox"
+    az = "az1"
+    vm_count = "2"
+    serverSize = "Small"
 }
