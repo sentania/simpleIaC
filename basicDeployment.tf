@@ -32,7 +32,7 @@ module sandboxOC {
 
 ###Opencart Sandbox
 module simpleIACSandbox {
-    source           = "./simpleIaa"
+    source           = "./simpleIaaS"
     project_name = "Lab Sandbox"
     catalog_item_version = "InitialRelease"
     deployment_name = "simpleIaaS"
