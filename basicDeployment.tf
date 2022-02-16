@@ -15,7 +15,7 @@ module sandboxOC {
 }
 
 ###Opencart Sandbox
-module sandboxOC {
+module sandboxOC1 {
     source           = "./openCart"
     project_name = "Opencart Application Group"
     catalog_item_version = "Release.3"
