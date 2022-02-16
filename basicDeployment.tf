@@ -37,7 +37,7 @@ module simpleIACSandbox {
     catalog_item_version = "InitialRelease"
     deployment_name = "simpleIaaS"
     description = "simple iaas"
-    serviceLevel = "Sandbox"
+    serviceLevel = "sandbox"
     az = "az1"
     vm_count = "2"
     serverSize = "Small"
