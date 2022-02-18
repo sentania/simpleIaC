@@ -22,7 +22,7 @@ deleteDir()
         stage("Execute Terraform Deployment") {
           sh './terraform init'
           sh './terraform providers'
-          sh ""./terraform plan -var vra_url=\"https://vra8.lab.sentania.net/\" -var refresh_token=${refresh_token} -state=\"/var/lib/jenkins/terraform/simpleIaC.tfstate\" -out=\"deploymentPlan\""
+          sh "./terraform plan -var vra_url='https://vra8.lab.sentania.net/' -var refresh_token=${refresh_token} -state='/var/lib/jenkins/terraform/simpleIaC.tfstate' -out='deploymentPlan'"
           sh './terraform apply -state="/var/lib/jenkins/terraform/simpleIaC.tfstate" -input=false deploymentPlan'
         }
 }
