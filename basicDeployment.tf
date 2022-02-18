@@ -30,15 +30,3 @@ module sandboxOC1 {
     password ="VMware1!"
 }
 
-###Opencart Sandbox
-module simpleIACSandbox {
-    source           = "./simpleIaaS"
-    project_name = "LabSandbox"
-    catalog_item_version = "InitialRelease"
-    deployment_name = "simpleIaaS"
-    description = "simple iaas"
-    serviceLevel = "sandbox"
-    az = "az1"
-    vm_count = "2"
-    serverSize = "Small"
-}
