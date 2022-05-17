@@ -3,7 +3,8 @@ provider "vra" {
   refresh_token = var.refresh_token
   insecure      = var.insecure
 }
-###Opencart Sandbox
+
+#VM Request
 module simpleIACSandbox {
     source           = "./simpleIaaS"
     project_name = "LabSandbox"
