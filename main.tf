@@ -8,7 +8,7 @@ provider "vra" {
 module simpleIACSandbox {
     source           = "./simpleIaaS"
     project_name = "LabSandbox"
-    catalog_item_version = "CentOS8.new"
+    catalog_item_version = "1"
     deployment_name = "simpleIaaS"
     description = "simple iaas"
     serviceLevel = "sandbox"
