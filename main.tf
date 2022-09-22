@@ -5,14 +5,12 @@ provider "vra" {
 }
 
 #VM Request
-module simpleIACSandbox {
-    source           = "./simpleIaaS"
-    project_name = "LabSandbox"
-    catalog_item_version = "1"
-    deployment_name = "simpleIaaS"
-    description = "simple iaas"
-    serviceLevel = "sandbox"
-    az = "az1"
-    vm_count = "2"
-    serverSize = "Small"
+module nginxServer01 {
+    source           = "./nginx"
+    project_name = "Private Cloud Sandbox"
+    catalog_item_version = "4"
+    deployment_name = "Nginx Provisioned by TF"
+    description = "Provisioned by TF"
+    serviceLevel = "production"
 }
+
