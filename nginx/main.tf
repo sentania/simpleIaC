@@ -2,7 +2,7 @@ data "vra_project" "this" {
   name = var.project_name
 }
 data "vra_catalog_item" "this" {
-  name = "Nginx
+  name = "Nginx"
 }
 resource "vra_deployment" "this" {
   name        = var.deployment_name
