@@ -14,7 +14,7 @@ resource "vra_deployment" "this" {
 
   expand_last_request = true
   timeouts {
-    create = "60m""
+    create = "60m"
     delete = "2h"
   }
   inputs = {
