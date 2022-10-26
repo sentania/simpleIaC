@@ -8,4 +8,7 @@ variable "deployment_name" {
 }
 variable "serviceLevel" {
 }
+variable "storagetier" {
+}
+
 

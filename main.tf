@@ -8,9 +8,10 @@ provider "vra" {
 module nginxServer01 {
     source           = "./nginx"
     project_name = "Private Cloud Sandbox"
-    catalog_item_version = "4"
+    catalog_item_version = "ProdWebServer"
     deployment_name = "Nginx Provisioned by TF"
     description = "Provisioned by TF"
     serviceLevel = "production"
+    storagetier = "vsan"
 }
 

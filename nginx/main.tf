@@ -19,6 +19,7 @@ resource "vra_deployment" "this" {
   }
   inputs = {
   serviceLevel = var.serviceLevel
+  storagetier  = var.storagetier
   }
 
 }
