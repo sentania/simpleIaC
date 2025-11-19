@@ -2,7 +2,7 @@ data "vra_project" "this" {
   name = var.project_name
 }
 data "vra_catalog_item" "this" {
-  name = "Multiple Ubuntu VM"
+  name = "Multiple Ubuntu"
 }
 resource "vra_deployment" "this" {
   name        = var.deployment_name
@@ -23,11 +23,11 @@ resource "vra_deployment" "this" {
 }
 
 locals {
-  resources = jsondecode(vra_deployment.this.resources_json)
+  resources = vra_deployment.this.resources
 
   machines = {
-    for name, r in local.resources :
-    name => r
+    for r in local.resources :
+    r.name => r
     if r.type == "Cloud.Machine"
   }
 }
