@@ -1,4 +1,4 @@
-variable vra_url {
+variable vcfa_url {
   type = string
   default = "https://api.mgmt.cloud.vmware.com"
 }
