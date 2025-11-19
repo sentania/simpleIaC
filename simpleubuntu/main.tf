@@ -11,11 +11,15 @@ resource "vra_deployment" "this" {
   catalog_item_id      = data.vra_catalog_item.this.id
   catalog_item_version  = var.catalog_item_version
   project_id        = data.vra_project.this.id
-  
+
   timeouts {
     create = "60m"
     delete = "2h"
   }
 
 
+}
+data "vra_machine" "this" {
+  depends_on = [vra_deployment.this]
+  filter     = "deploymentId eq '${vra_deployment.this.id}'"
 }
