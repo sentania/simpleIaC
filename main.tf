@@ -21,12 +21,21 @@ module ubuntuServer03 {
     deployment_name = "Simple Ubuntu -2 Provisioned by TF"
     description = "Provisioned by TF"
 }
+module multipleServer01 {
+    source           = "./multipleubuntu"
+    project_name = "VCF Lab Sandbox"
+    catalog_item_version = "1"
+    deployment_name = "Multiple Ubuntu Provisioned by TF"
+    description = "Provisioned by TF"
+    vmcount = 2
+}
 
 locals {
   machines_map = merge(
     module.ubuntuServer02.machines_map,
     module.ubuntuServer01.machines_map,
-    module.ubuntuServer03.machines_map
+    module.ubuntuServer03.machines_map,
+    module.multipleServer01.machines_map
   )
 }
 
@@ -36,10 +45,10 @@ data "vra_machine" "all" {
 }    
 
 
-resource "local_file" "lb_config" {
-  content  = templatefile("${path.module}/lb-template.tpl", {
+resource "local_file" "server_list" {
+  content  = templatefile("${path.module}/output-template.tpl", {
     nodes = data.vra_machine.all
   })
-  filename = "${path.module}/lb-config.conf"
+  filename = "${path.module}/server-list.txt"
 }
 

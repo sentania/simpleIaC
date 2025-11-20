@@ -5,6 +5,7 @@
 *.tfstate
 *.tfstate.*
 *conf*
+server-list.txt
 
 
 # Crash log files
