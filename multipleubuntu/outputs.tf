@@ -1,17 +1,29 @@
-output deployment {
+output "deployment_info" {
   value = {
-    "name" = vra_deployment.this.name,
-    "id"   = vra_deployment.this.id
+    id   = vra_deployment.this.id
+    name = vra_deployment.this.name
   }
 }
 
-output "machines" {
+output "machines_map" {
   value = {
-    for k, m in data.vra_machine.all :
-    k => {
-      id      = m.id
-      name    = m.name
-      address = m.address
+    for r in vra_deployment.this.resources :
+    r.id => {
+      name = r.name
+      type = r.type
     }
+    if r.type == "Cloud.Machine"
   }
 }
+
+output "machines_list" {
+  value = [
+    for r in vra_deployment.this.resources : {
+      id   = r.id
+      name = r.name
+      type = r.type
+    }
+    if r.type == "Cloud.Machine"
+  ]
+}
+

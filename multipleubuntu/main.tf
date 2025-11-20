@@ -22,17 +22,18 @@ resource "vra_deployment" "this" {
   }
 }
 
+
 locals {
+  # raw resource set/object returned by deployment
   resources = vra_deployment.this.resources
 
-  machines = {
+  # extract only machines: { "machineName" => { id = "...", type = "Cloud.Machine" } }
+  simple_machine_metadata = {
     for r in local.resources :
-    r.name => r
+    r.name => {
+      id   = r.id
+      type = r.type
+    }
     if r.type == "Cloud.Machine"
   }
-}
-
-data "vra_machine" "all" {
-  for_each = local.machines
-  id       = each.value.id
 }
