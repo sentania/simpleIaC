@@ -26,4 +26,3 @@ output "machines_list" {
     if r.type == "Cloud.Machine"
   ]
 }
-

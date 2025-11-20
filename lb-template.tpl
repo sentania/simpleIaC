@@ -1,4 +1,4 @@
 # Simulated Load Balancer Nodes
-%{ for node in nodes ~}
-server ${node};
+%{ for node, details in nodes ~}
+${details.name}: ${details.address}
 %{ endfor ~}
