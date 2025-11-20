@@ -25,8 +25,9 @@ module multipleServer01 {
 
 locals {
   machines = merge(
-    module.multiubuntu.machines_map,
-    module.singleubuntu.machines_map
+    module.multipleServer01.machines_map,
+    module.ubuntuServer02.machines_map,
+    module.ubuntuServer01.machines_map
   )
 }
 
@@ -36,11 +37,8 @@ data "vra_machine" "all" {
   id       = each.value.id
 }
 
-locals {
-  machines = data.vra_machine.all
-}
 
-data "templatefile" "lb_template" {
+data "template_file" "lb_template" {
   template = file("${path.module}/lb-template.tpl")
   vars = {
     nodes = [
@@ -51,7 +49,7 @@ data "templatefile" "lb_template" {
 }
 
 resource "local_file" "lb_config" {
-  content  = data.templatefile.lb_template.rendered
+  content  = data.template_file.lb_template.rendered
   filename = "${path.cwd}/lb-config.conf"
 }
 
