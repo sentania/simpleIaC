@@ -10,7 +10,7 @@ deployments = {
     catalog_item_version = 1
     inputs = {
       flavorSize = "medium"
-      diskCount  = 3
+      diskCount  = 4
       diskSize   = 10
       image      = "ubuntu22"
     }
@@ -24,7 +24,7 @@ deployments = {
     catalog_item_version = 1
     inputs = {
       flavorSize = "medium"
-      diskCount  = 4
+      diskCount  = 2
       diskSize   = 10
       image      = "ubuntu22"
     }
