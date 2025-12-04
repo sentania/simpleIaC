@@ -1,68 +1,130 @@
-# Simple IaC Terraform Example
+# simpleIaC
+A streamlined Terraform-based framework for deploying **any Aria Automation / VCF Automation blueprint** using a single-pass plan and a clean variable-driven model.
 
-This repository demonstrates:
-- Deploying VCF Automation (VM Apps) blueprints via Terraform
-- Supporting **single‑VM** and **multi‑VM** blueprints using separate modules
-- Merging VM outputs from multiple deployments
-- Resolving VM IPs via `vra_machine` data sources
-- Producing a simulated load‑balancer node list as a text file
+This repository provides:
+- A top-level Terraform deployment that accepts environment-specific inputs.
+- A reusable module capable of deploying **any** blueprint by passing inputs dynamically from a `.tfvars` file.
+- Optional output exports for downstream integrations (DNS, CMDB, monitoring, etc.).
 
-## Execution Model
-
-Due to how Aria Automation surfaces machine details, Terraform must execute in **multiple passes**:
-
-### 1. First pass — create deployments  
-Use `--target` to apply blueprint modules only:
-```
-terraform apply --target=module.ubuntuServer01 --target=module.ubuntuServer02 --target=module.multipleServer01
-```
-
-### 2. Second pass — resolve VMs and render output
-```
-terraform apply
-```
-
-This pass resolves all VMs and renders the final file.
+The design avoids circular dependencies and multi-pass planning by decoupling blueprint resource creation from consumer processes.
 
 ---
 
-## Output
+## 🚀 Features
 
-The generated file resembles:
+### ✔️ Single-pass Terraform deployment
+The module has been refactored so that:
+- All blueprint inputs come from your `.tfvars` file.
+- Outputs from the deployment are exported without requiring a secondary plan or refresh.
+
+### ✔️ Generic blueprint module
+Feed it:
+- The blueprint ID or name  
+- Input map  
+- Project / region target  
+- Optional metadata and tagging  
+
+The module handles the rest.
+
+### ✔️ Clean separation of concerns
+This repo focuses on **provisioning only**.  
+Any post-provision actions (DNS, CMDB, NSX security, etc.) can be consumed from the outputs.
+
+---
+
+## 📁 Repository Structure
+
 ```
-# Simulated Load Balancer Nodes
-Cloud_Machine_1-xyz: 172.28.0.35
-Cloud_Machine_1-abc: 172.28.0.67
-Cloud_Machine_1-def: 172.28.0.03
+simpleIaC/
+├── main.tf
+├── providers.tf
+├── variables.tf
+├── outputs.tf
+├── envs/
+│   ├── lab.tfvars
+│   └── example.tfvars
+└── modules/
+    └── blueprint-deploy/
+        ├── main.tf
+        ├── variables.tf
+        ├── outputs.tf
 ```
 
 ---
 
-## Modules
+## 🧩 Using This Repository
 
-- `simpleubuntu/`: Deploys a single‑VM blueprint.
-- `multipleubuntu/`: Deploys a multi‑VM blueprint requiring `vmCount`.
-- Modules return standardized outputs:
-  - `deployment_info`
-  - `machines_map` keyed by **machine ID**
-  - `machines_list`
+### 1. Clone the repo
+```bash
+git clone https://github.com/sentania-labs/simpleIaC
+cd simpleIaC
+```
+
+### 2. Copy an env file
+```bash
+cp envs/example.tfvars envs/my-env.tfvars
+```
+
+### 3. Edit your TF vars
+Specify:
+- `project_id`
+- `blueprint_id`
+- `deployment_name`
+- `inputs = { ... }`
+
+Example:
+```hcl
+project_id      = "12345"
+blueprint_id    = "bp-abcdef"
+deployment_name = "my-vm"
+inputs = {
+  cpu_count = 4
+  mem_gb    = 16
+  hostname  = "example"
+}
+```
+
+### 4. Initialize Terraform
+```bash
+terraform init
+```
+
+### 5. Plan and Apply
+```bash
+terraform plan -var-file="envs/my-env.tfvars"
+terraform apply -var-file="envs/my-env.tfvars"
+```
 
 ---
 
-## Helper Logic
+## 📤 Outputs
 
-The root module:
-- Merges machine maps from multiple deployments
-- Resolves IP addresses via `data "vra_machine"`
-- Writes output using `templatefile()` + `local_file`
+The deployment exports:
+- Deployment ID  
+- Deployment name  
+- Resource map (each VM / disk / nic)  
+- IP address details  
+- Custom property results (if enabled)
+
+These can be consumed by downstream repos or pipelines.
 
 ---
 
-## Requirements
+## 🧱 Module Reference
 
-- Terraform 1.4+
-- VCF Automation VM Apps 9.x or Aria Automation 8.18.x
-- Credentials set via provider block
+See `MODULE.md` for documentation of the reusable blueprint module.
 
-## Questions ?
-scottb@sentania.net
+---
+
+## 🤝 Contributing
+
+Feel free to open PRs if you'd like to contribute enhancements such as:
+- More flexible input validation
+- Event-driven follow-up integrations
+- Example downstream modules
+
+---
+
+## 📜 License
+
+MIT — use freely in your lab, enterprise, or demos.
