@@ -10,3 +10,12 @@ module "deployments" {
   catalog_item_version = each.value.catalog_item_version
   inputs               = each.value.inputs
 }
+
+data "vra_machine" "all" {
+  for_each = {
+    for k, m in module.deployments :
+    k => m.deployment_info
+  }
+
+  id = each.value.id
+}
