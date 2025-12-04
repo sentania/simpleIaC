@@ -1,6 +1,6 @@
-#Blueprint request
+#Catalog Item request
 module "deployments" {
-  source   = "./virtualmachine"
+  source   = "./virtualmachine_bp"
   for_each = var.deployments
 
   project_name         = each.value.project_name
@@ -10,6 +10,7 @@ module "deployments" {
   catalog_item_version = each.value.catalog_item_version
   inputs               = each.value.inputs
 }
+
 
 data "vra_machine" "all" {
   for_each = {
