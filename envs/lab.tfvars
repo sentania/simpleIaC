@@ -1,4 +1,4 @@
-vcfa_url          = "https://vcf-lab.automation.int.sentania.net"
+vcfa_url          = "https://vcf-lab-automation.int.sentania.net"
 vcfa_organization = "vcf-lab-vm-apps"
 
 deployments = {
