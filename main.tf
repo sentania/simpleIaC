@@ -17,5 +17,5 @@ data "vra_machine" "all" {
     k => m.deployment_info
   }
 
-  filter = "deployment_id eq '${each.value.id}'"
+  filter = "deploymentId eq '${each.value.id}'"
 }
