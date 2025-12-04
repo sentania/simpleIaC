@@ -64,3 +64,5 @@ The root module:
 - VCF Automation VM Apps 9.x or Aria Automation 8.18.x
 - Credentials set via provider block
 
+## Questions ?
+scottb@sentania.net
