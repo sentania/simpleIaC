@@ -10,7 +10,7 @@ resource "vra_deployment" "this" {
 
   blueprint_id         = data.vra_blueprint.this.id
   project_id           = data.vra_project.this.id
-
+  blueprint_version    = var.catalog_item_version
   timeouts {
     create = "60m"
     delete = "2h"
