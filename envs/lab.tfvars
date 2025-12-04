@@ -3,7 +3,7 @@ vcfa_organization = "vcf-lab-vm-apps"
 
 deployments = {
   myfirstdeployment = {
-    project_name         = "vcf-lab-finance"
+    project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "Multiple Ubuntu"
     deployment_name      = "Ubuntu Provisioned by TF"
     description          = "Provisioned by TF"
@@ -16,7 +16,7 @@ deployments = {
     }
   }
     mySecondDeployment = {
-    project_name         = "vcf-lab-finance"
+    project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "Multiple Ubuntu"
     deployment_name      = "Ubuntu Provisioned by TF (x2)"
     description          = "Provisioned by TF"
