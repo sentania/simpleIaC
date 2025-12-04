@@ -15,5 +15,19 @@ deployments = {
       image      = "ubuntu22"
     }
   }
+    mySecondDeployment = {
+    project_name         = "vcf-lab-finance"
+    catalog_item_name    = "Multiple Ubuntu"
+    deployment_name      = "Ubuntu Provisioned by TF (x2)"
+    description          = "Provisioned by TF"
+    catalog_item_version = 1
+    inputs = {
+      flavorSize = "medium"
+      diskCount  = 3
+      diskSize   = 10
+      image      = "ubuntu22"
+    }
+  }
+
 
 }
