@@ -24,5 +24,5 @@ resource "local_file" "lb_config" {
   content = templatefile("${path.module}/lb-template.tpl", {
     nodes = data.vra_machine.all
   })
-  filename = "${path.module}/lb-config.conf"
+  filename = "${path.module}/output-template.tpl"
 }
