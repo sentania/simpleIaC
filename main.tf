@@ -19,3 +19,10 @@ data "vra_machine" "all" {
 
   filter = "deploymentId eq '${each.value.id}'"
 }
+
+resource "local_file" "lb_config" {
+  content  = templatefile("${path.module}/lb-template.tpl", {
+    nodes = data.vra_machine.all
+  })
+  filename = "${path.module}/lb-config.conf"
+}
