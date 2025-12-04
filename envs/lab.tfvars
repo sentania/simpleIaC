@@ -2,7 +2,7 @@ vcfa_url          = "https://vcf-lab-automation.int.sentania.net"
 vcfa_organization = "vcf-lab-vm-apps"
 
 deployments = {
-   myFifthDeployment = {
+  myFifthDeployment = {
     project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "VM With Disks"
     deployment_name      = "Ubuntu Provisioned by TF (x5)"
@@ -28,7 +28,7 @@ deployments = {
       image      = "ubuntu22"
     }
   }
-    deploymentWithTags = {
+  deploymentWithTags = {
     project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "VM With Disks"
     deployment_name      = "Ubuntu Deployment with vSphere Tags"
@@ -39,7 +39,7 @@ deployments = {
       diskCount  = 2
       diskSize   = 10
       image      = "ubuntu22"
-      tags       =  [{ "key": "serviceLevel", "value": "production" }, { "key": "application", "value": "finance" }]
-      }
+      tags       = [{ "key" : "serviceLevel", "value" : "production" }, { "key" : "application", "value" : "finance" }]
     }
+  }
 }
