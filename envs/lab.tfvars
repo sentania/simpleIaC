@@ -2,60 +2,7 @@ vcfa_url          = "https://vcf-lab-automation.int.sentania.net"
 vcfa_organization = "vcf-lab-vm-apps"
 
 deployments = {
-  myfirstdeployment = {
-    project_name         = "VCF Lab Sandbox"
-    catalog_item_name    = "VM With Disks"
-    deployment_name      = "Ubuntu Provisioned by TF"
-    description          = "Provisioned by TF"
-    catalog_item_version = 1
-    inputs = {
-      flavorSize = "medium"
-      diskCount  = 3
-      diskSize   = 10
-      image      = "ubuntu22"
-    }
-  }
-  mySecondDeployment = {
-    project_name         = "VCF Lab Sandbox"
-    catalog_item_name    = "VM With Disks"
-    deployment_name      = "Ubuntu Provisioned by TF (x2)"
-    description          = "Provisioned by TF"
-    catalog_item_version = 1
-    inputs = {
-      flavorSize = "medium"
-      diskCount  = 3
-      diskSize   = 10
-      image      = "ubuntu22"
-    }
-  }
-  myThirdDeployment = {
-    project_name         = "VCF Lab Sandbox"
-    catalog_item_name    = "VM With Disks"
-    deployment_name      = "Ubuntu Provisioned by TF (x3)"
-    description          = "Provisioned by TF"
-    catalog_item_version = 1
-    inputs = {
-      flavorSize = "medium"
-      diskCount  = 3
-      diskSize   = 10
-      image      = "ubuntu22"
-    }
-  }
-  myFourDeployment = {
-    project_name         = "VCF Lab Sandbox"
-    catalog_item_name    = "VM With Disks"
-    deployment_name      = "Ubuntu Provisioned by TF (x4)"
-    description          = "Provisioned by TF"
-    catalog_item_version = 1
-    inputs = {
-      flavorSize = "medium"
-      diskCount  = 3
-      diskSize   = 10
-      image      = "ubuntu22"
-    }
-  }
-
-  myFifthDeployment = {
+   myFifthDeployment = {
     project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "VM With Disks"
     deployment_name      = "Ubuntu Provisioned by TF (x5)"
@@ -77,11 +24,9 @@ deployments = {
     catalog_item_version = 1
     inputs = {
       flavorSize = "medium"
-      diskCount  = 3
+      diskCount  = 4
       diskSize   = 10
       image      = "ubuntu22"
     }
   }
-
-
 }
