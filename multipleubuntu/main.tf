@@ -9,8 +9,8 @@ resource "vra_deployment" "this" {
   description = var.description
 
   catalog_item_id      = data.vra_catalog_item.this.id
-  catalog_item_version  = var.catalog_item_version
-  project_id        = data.vra_project.this.id
+  catalog_item_version = var.catalog_item_version
+  project_id           = data.vra_project.this.id
 
   timeouts {
     create = "60m"
@@ -18,7 +18,7 @@ resource "vra_deployment" "this" {
   }
 
   inputs = {
-    vmCount = var.vmcount 
+    vmCount = var.vmcount
   }
 }
 

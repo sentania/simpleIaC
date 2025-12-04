@@ -2,7 +2,7 @@ data "vra_project" "this" {
   name = var.project_name
 }
 data "vra_catalog_item" "this" {
-  name = "Simple Ubuntu VM"
+  name = var.catalog_item_name
 }
 resource "vra_deployment" "this" {
   name        = var.deployment_name
@@ -17,9 +17,8 @@ resource "vra_deployment" "this" {
     delete = "2h"
   }
 
+  inputs = var.inputs
+}
 
-}
-data "vra_machine" "this" {
-  depends_on = [vra_deployment.this]
-  filter     = "deploymentId eq '${vra_deployment.this.id}'"
-}
+
+
