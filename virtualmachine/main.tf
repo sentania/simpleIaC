@@ -17,7 +17,14 @@ resource "vra_deployment" "this" {
     delete = "2h"
   }
 
-  inputs = var.inputs
+  inputs = {
+    for key, value in var.inputs : key =>
+    (can(tostring(value)) && value == tostring(value))
+    ? tostring(value)
+    : jsonencode(value)
+  }
+
+
 }
 
 
