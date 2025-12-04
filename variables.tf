@@ -55,6 +55,6 @@ variable "insecure" {
  */
 variable "deployments" {
   description = "Map of vRA deployment request definitions."
-  type = any
+  type        = any
 }
 
