@@ -1,0 +1,66 @@
+formatVersion: 1
+inputs:
+  tags:
+    type: array
+    items:
+      type: object
+      properties:
+        key:
+          type: string
+          title: key
+        value:
+          type: string
+          title: value
+    title: Tags
+  flavorSize:
+    type: string
+    default: medium
+    enum:
+      - small
+      - medium
+      - large
+  image:
+    type: string
+    default: ubuntu24
+    enum:
+      - ubuntu24
+      - ubuntu22
+  diskSize:
+    type: integer
+    default: 5
+    minimum: 1
+    maximum: 15
+  diskCount:
+    type: integer
+    default: 0
+    minimum: 0
+    maximum: 4
+resources:
+  ubuntuVM-disk:
+    type: Cloud.Volume
+    properties:
+      capacityGb: ${input.diskSize}
+      count: ${input.diskCount}
+      constraints:
+        - tag: storageTier:iscsi
+  ubuntuVM:
+    type: Cloud.Machine
+    properties:
+      tags: ${input.tags}
+      constraints:
+        - tag: '!vcfaCapablity:closed:hard'
+        - tag: application:hr
+      image: ${input.image}
+      flavor: ${input.flavorSize}
+      attachedDisks: ${map_to_object(resource["ubuntuVM-disk"][*].id, "source")}
+      networks:
+        - network: ${resource.ubuntuVM-network.id}
+      storage:
+        constraints:
+          - tag: storageTier:iscsi
+  ubuntuVM-network:
+    type: Cloud.Network
+    properties:
+      networkType: existing
+      constraints:
+        - tag: application:hr

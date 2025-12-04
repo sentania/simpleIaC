@@ -43,7 +43,21 @@ deployments = {
         { key = "serviceLevel", value = "production" },
         { key = "application", value = "finance" }
       ]
-
+    }
+  }
+  deploymentExpectedTags = {
+    project_name         = "VCF Lab Sandbox"
+    catalog_item_name    = "VM With Disks"
+    deployment_name      = "Ubuntu Deployment with vSphere Tags"
+    description          = "Provisioned by TF"
+    catalog_item_version = explicittags
+    inputs = {
+      flavorSize   = "medium"
+      diskCount    = 2
+      diskSize     = 10
+      image        = "ubuntu24"
+      serviceLevel = "sandbox"
+      application  = "sandbox"
     }
   }
 }
