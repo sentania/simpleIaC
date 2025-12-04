@@ -39,9 +39,11 @@ deployments = {
       diskCount  = 2
       diskSize   = 10
       image      = "ubuntu22"
-      tags       = <<EOT
-        ["{ "key" : "serviceLevel", "value" : "production" }, { "key" : "application", "value" : "finance" }"]
-      EOT
+      tags = [
+        { key = "serviceLevel", value = "production" },
+        { key = "application", value = "finance" }
+      ]
+
     }
   }
 }
