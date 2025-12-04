@@ -46,6 +46,12 @@ jobs:
           name: terraform-plan
           path: tfplan
 
+      - name: Upload output Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-list.txt
+          path: server-list.txt
+
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: terraform apply -input=false -auto-approve tfplan
