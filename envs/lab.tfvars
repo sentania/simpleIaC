@@ -28,6 +28,19 @@ deployments = {
       image      = "ubuntu22"
     }
   }
+    myThirdDeployment = {
+    project_name         = "VCF Lab Sandbox"
+    catalog_item_name    = "VM With Disks"
+    deployment_name      = "Ubuntu Provisioned by TF (x3)"
+    description          = "Provisioned by TF"
+    catalog_item_version = 1
+    inputs = {
+      flavorSize = "medium"
+      diskCount  = 3
+      diskSize   = 10
+      image      = "ubuntu22"
+    }
+  }
 
 
 }
