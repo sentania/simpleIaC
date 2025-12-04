@@ -63,6 +63,6 @@ variable "deployments" {
     catalog_item_version = string
 
     // Arbitrary blueprint inputs — no schema enforced
-    inputs = map(any)
+    inputs = any
   }))
 }
