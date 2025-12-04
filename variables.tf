@@ -55,5 +55,14 @@ variable "insecure" {
  */
 variable "deployments" {
   description = "Map of vRA deployment request definitions."
-  type        = any
+  type = map(object({
+    project_name         = string
+    catalog_item_name    = string
+    deployment_name      = string
+    description          = string
+    catalog_item_version = string
+
+    // Arbitrary blueprint inputs — no schema enforced
+    inputs = map(any)
+  }))
 }

@@ -12,6 +12,6 @@ variable "deployment_name" {
 }
 variable "inputs" {
   description = "Arbitrary inputs to pass to the blueprint"
-  type        = any
+  type        = map(any)
   default     = {}
 }
