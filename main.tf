@@ -21,8 +21,8 @@ data "vra_machine" "all" {
 }
 
 resource "local_file" "lb_config" {
-  content = templatefile("${path.module}/lb-template.tpl", {
+  content = templatefile("${path.module}/output-template.tpl", {
     nodes = data.vra_machine.all
   })
-  filename = "${path.module}/output-template.tpl"
+  filename = "${path.module}/server-list.txt"
 }
