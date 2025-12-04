@@ -19,7 +19,7 @@ jobs:
       # vSphere / vRA / VCF environment-specific credentials
       TF_VAR_serviceAccountUserName: ${{ secrets.VCF_SERVICE_USER }}
       TF_VAR_serviceAccountPassword: ${{ secrets.VCF_SERVICE_PASSWORD }}
-      TF_VAR_vcfa_refresh_token: ${{ secrets.VCFA_API_TOKEN}}
+      TF_VAR_vcfa_refresh_token: ${{ secrets.VCFA_REFRESH_TOKEN}}
 
     steps:
       - name: Checkout repository

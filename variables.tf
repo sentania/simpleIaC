@@ -5,6 +5,7 @@ variable "vcfa_url" {
 
 variable "vcfa_refresh_token" {
   type = string
+  sensitive = true
 }
 
 variable "vcfa_organization" {
