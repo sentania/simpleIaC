@@ -4,7 +4,7 @@ vcfa_organization = "vcf-lab-vm-apps"
 deployments = {
   myfirstdeployment = {
     project_name         = "VCF Lab Sandbox"
-    catalog_item_name    = "Multiple Ubuntu"
+    catalog_item_name    = "VM With Disks"
     deployment_name      = "Ubuntu Provisioned by TF"
     description          = "Provisioned by TF"
     catalog_item_version = 1
@@ -17,7 +17,7 @@ deployments = {
   }
     mySecondDeployment = {
     project_name         = "VCF Lab Sandbox"
-    catalog_item_name    = "Multiple Ubuntu"
+    catalog_item_name    = "VM With Disks"
     deployment_name      = "Ubuntu Provisioned by TF (x2)"
     description          = "Provisioned by TF"
     catalog_item_version = 1
