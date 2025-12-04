@@ -15,7 +15,6 @@ deployments = {
       image      = "ubuntu22"
     }
   }
-
   mySixthDeployment = {
     project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "VM With Disks"
@@ -29,4 +28,19 @@ deployments = {
       image      = "ubuntu22"
     }
   }
+    deploymentWithTags = {
+    project_name         = "VCF Lab Sandbox"
+    catalog_item_name    = "VM With Disks"
+    deployment_name      = "Ubuntu Deployment with vSphere Tags"
+    description          = "Provisioned by TF"
+    catalog_item_version = 3
+    inputs = {
+      flavorSize = "medium"
+      diskCount  = 2
+      diskSize   = 10
+      image      = "ubuntu22"
+      tags = [{ "key": "serviceLevel", "value": "production" }, { "key": "application", "value": "finance" }]
+
+      }
+    }
 }
