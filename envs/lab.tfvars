@@ -15,7 +15,7 @@ deployments = {
       image      = "ubuntu22"
     }
   }
-    mySecondDeployment = {
+  mySecondDeployment = {
     project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "VM With Disks"
     deployment_name      = "Ubuntu Provisioned by TF (x2)"
