@@ -28,10 +28,51 @@ deployments = {
       image      = "ubuntu22"
     }
   }
-    myThirdDeployment = {
+  myThirdDeployment = {
     project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "VM With Disks"
     deployment_name      = "Ubuntu Provisioned by TF (x3)"
+    description          = "Provisioned by TF"
+    catalog_item_version = 1
+    inputs = {
+      flavorSize = "medium"
+      diskCount  = 3
+      diskSize   = 10
+      image      = "ubuntu22"
+    }
+  }
+  myFourDeployment = {
+    project_name         = "VCF Lab Sandbox"
+    catalog_item_name    = "VM With Disks"
+    deployment_name      = "Ubuntu Provisioned by TF (x4)"
+    description          = "Provisioned by TF"
+    catalog_item_version = 1
+    inputs = {
+      flavorSize = "medium"
+      diskCount  = 3
+      diskSize   = 10
+      image      = "ubuntu22"
+    }
+  }
+
+  myFifthDeployment = {
+    project_name         = "VCF Lab Sandbox"
+    catalog_item_name    = "VM With Disks"
+    deployment_name      = "Ubuntu Provisioned by TF (x5)"
+    description          = "Provisioned by TF"
+    catalog_item_version = 1
+    inputs = {
+      flavorSize = "medium"
+      diskCount  = 3
+      diskSize   = 10
+      image      = "ubuntu22"
+    }
+  }
+
+  mySixthDeployment = {
+    project_name         = "VCF Lab Sandbox"
+    catalog_item_name    = "VM With Disks"
+    deployment_name      = "Ubuntu Provisioned by TF (x6)"
     description          = "Provisioned by TF"
     catalog_item_version = 1
     inputs = {

@@ -112,7 +112,7 @@ These can be consumed by downstream repos or pipelines.
 
 ## 🧱 Module Reference
 
-See `MODULE.md` for documentation of the reusable blueprint module.
+See `Readme.md` for documentation of the reusable blueprint module.
 
 ---
 
