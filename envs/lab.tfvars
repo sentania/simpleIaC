@@ -76,10 +76,10 @@ deployments = {
       ]
     }
   }
-    testnewContentLibrary2 = {
+    testnewContentLibrary = {
     project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "VM With Disks"
-    deployment_name      = "New Content Library2"
+    deployment_name      = "New Content Library"
     description          = "Provisioned by TF"
     catalog_item_version = 3
     inputs = {
