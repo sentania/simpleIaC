@@ -76,7 +76,7 @@ deployments = {
       ]
     }
   }
-    testnewContentLibrary = {
+    testnewContentLibrary2 = {
     project_name         = "VCF Lab Sandbox"
     catalog_item_name    = "VM With Disks"
     deployment_name      = "New Content Library"
