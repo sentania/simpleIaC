@@ -1,6 +1,7 @@
 #Catalog Item request
 module "deployments" {
-  source   = "./virtualmachine_bp"
+  source   = "sentania-labs/vmapps-blueprint/vra"
+  version  = "0.8.0"
   for_each = var.deployments
 
   project_name         = each.value.project_name
